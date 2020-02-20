@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PinKripto05.Models.KriptoTrades>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Kripto Pregled</h1>
+<p>Pregled kripto valuta koje se nalaze u MS SQL bazi</p>
+<p>Za azuriranje podataka u MS SQL bazi (dohvat vrijednosti s weba) koristiti lokalnu Python skriptu CMD_API_Azuriraj_KriptoTradeDB.py</p>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Symbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KriptoName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change1h)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change24h)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change7d)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KriptoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usd) $
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change1h) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change24h) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change7d) %
+            </td>
+
+            <td>
+
+                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                <coingecko-coin-list-widget coin-ids="@item.KriptoName" currency="usd" locale="en" width="15"></coingecko-coin-list-widget>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

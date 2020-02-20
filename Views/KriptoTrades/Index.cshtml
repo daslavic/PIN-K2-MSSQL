@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PinKripto05.Models.KriptoTrades>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Administratorska stranica</h1>
+<p>Stranica za azuriranje svih podataka u bazi</p>
+
+<p>
+    <a asp-action="Create">Dodaj novu kripto valutu</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.KriptoRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Symbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KriptoName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumUnosa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change1h)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change24h)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Change7d)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.KriptoRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KriptoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usd) $
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumUnosa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change1h) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change24h) %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change7d) %
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.KriptoName">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.KriptoName">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.KriptoName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

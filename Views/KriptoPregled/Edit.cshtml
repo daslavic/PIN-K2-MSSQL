@@ -1,0 +1,70 @@
+﻿@model PinKripto05.Models.KriptoTrades
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>KriptoTrades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KriptoId" class="control-label"></label>
+                <input asp-for="KriptoId" class="form-control" />
+                <span asp-validation-for="KriptoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KriptoRank" class="control-label"></label>
+                <input asp-for="KriptoRank" class="form-control" />
+                <span asp-validation-for="KriptoRank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Symbol" class="control-label"></label>
+                <input asp-for="Symbol" class="form-control" />
+                <span asp-validation-for="Symbol" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="KriptoName" />
+            <div class="form-group">
+                <label asp-for="Usd" class="control-label"></label>
+                <input asp-for="Usd" class="form-control" />
+                <span asp-validation-for="Usd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumUnosa" class="control-label"></label>
+                <input asp-for="DatumUnosa" class="form-control" />
+                <span asp-validation-for="DatumUnosa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Change1h" class="control-label"></label>
+                <input asp-for="Change1h" class="form-control" />
+                <span asp-validation-for="Change1h" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Change24h" class="control-label"></label>
+                <input asp-for="Change24h" class="form-control" />
+                <span asp-validation-for="Change24h" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Change7d" class="control-label"></label>
+                <input asp-for="Change7d" class="form-control" />
+                <span asp-validation-for="Change7d" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
